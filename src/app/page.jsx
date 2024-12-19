@@ -62,6 +62,19 @@ export default function Home() {
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <a 
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://github.com/RjChiba/TaskTimer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img 
+            src="https://rjchiba.vercel.app/img/icons/github.png" 
+            width={16}
+            height={16}
+            alt=""/>
+          Github Repository
+        </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://rjchiba.vercel.app"
@@ -75,7 +88,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to the creater's website
+          Creater's website
         </a>
       </footer>
     </div>
