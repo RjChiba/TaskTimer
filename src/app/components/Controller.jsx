@@ -40,13 +40,13 @@ function ControllerItem({controller, timeDelta, isProcessing, startProcessing, s
 	return (
 		<>
 			{/* controller */}
-			<div className={isProcessing ? "controller-running" : "controller-primary"}>
-				<div className="w-[25rem] flex flex-row gap-1">
+			<div className="z-0 flex flex-row gap-2 justify-between my-2 px-4 py-2 border rounded">
+				<div className="max-w-[25rem] flex flex-row gap-1">
 					<button onClick={openPopup}>
 						<FontAwesomeIcon icon={faPenToSquare} />
 					</button>
-					<h2 className="w-[10rem] text-left">{itemName}</h2>
-					<p className="w-[10rem] text-center">{currentTimeString}</p>
+					<h2 className="max-w-[10rem] text-left">{itemName}</h2>
+					<p className="max-w-[10rem] text-center">{currentTimeString}</p>
 				</div>
 				<div className="flex flex-row gap-2 justify-center items-center">
 					<button 
@@ -67,7 +67,7 @@ function ControllerItem({controller, timeDelta, isProcessing, startProcessing, s
 			{/* popup window */}
 			<div className={isPopup ? "z-10" : "z-10 hidden"}>
 				<div className="absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
-					<div className="w-[50%] p-8 bg-white rounded-lg flex flex-row justify-between">
+					<div className="w-[calc(100%-2rem)] md:w-[50%] p-8 bg-white rounded-lg flex flex-col gap-4 md:flex-row justify-between">
 						<div className="flex flex-row gap-2">
 							<label htmlFor="name">Title</label>
 							<input
