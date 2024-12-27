@@ -21,8 +21,8 @@ body {
 }
 
 button {
-  background: var(--foreground);
-  color: var(--background);
+  /*background: var(--foreground);
+  color: var(--background);*/
   border: none;
   padding: 0 0.5rem;
   border-radius: 0.25rem;
@@ -44,4 +44,31 @@ input {
 label {
   display: block;
   padding: 9px 0;
+}
+
+svg {
+  fill: var(--foreground);
+  stroke: var(--foreground);
+}
+
+@layer components {
+  .controller-primary {
+    @apply z-0 flex flex-row gap-2 justify-between my-2 px-4 py-2 border rounded;
+  }
+
+  .controller-running {
+    @apply z-0 flex flex-row gap-2 justify-between my-2 px-4 py-2 border rounded bg-green-50 border-green-100;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .controller-running {
+      color: var(--background);
+      @apply bg-green-50 border-green-100;
+    }
+
+    .controller-running svg {
+      fill: var(--background);
+      stroke: var(--background);
+    }
+  }
 }
