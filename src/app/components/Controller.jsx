@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faFloppyDisk, faBoxArchive, faXmark } from '@fortawesome/free-solid-svg-icons'
 import RandStr from 'src/app/utils/RandStr';
+import PlayerPause from 'src/app/atom/Icons/PlayerPause';
+import PlayerPlay from 'src/app/atom/Icons/PlayerPlay';
 
 function ControllerItem({controller, timeDelta, isProcessing, startProcessing, stopProcessing, updateItemName, removeController}) {
 
@@ -38,7 +40,7 @@ function ControllerItem({controller, timeDelta, isProcessing, startProcessing, s
 	return (
 		<>
 			{/* controller */}
-			<div className="z-0 flex flex-row gap-2 justify-between my-2 px-4 py-2 border rounded">
+			<div className={isProcessing ? "controller-running" : "controller-primary"}>
 				<div className="max-w-[25rem] flex flex-row gap-1">
 					<button onClick={openPopup}>
 						<FontAwesomeIcon icon={faPenToSquare} />
@@ -47,8 +49,18 @@ function ControllerItem({controller, timeDelta, isProcessing, startProcessing, s
 					<p className="max-w-[10rem] text-center">{currentTimeString}</p>
 				</div>
 				<div className="flex flex-row gap-2 justify-center items-center">
-					<button onClick={startProcessing} disabled={isProcessing ? true : false}>Start</button>
-					<button disabled={isProcessing ? false : true} onClick={stopProcessing}>Stop</button>
+					<button 
+						onClick={startProcessing} 
+						hidden={isProcessing ? true : false}
+					>
+						<PlayerPlay />
+					</button>
+					<button 
+						onClick={stopProcessing}
+						hidden={isProcessing ? false : true} 
+					>
+						<PlayerPause />
+					</button>
 				</div>
 			</div>
 
@@ -151,7 +163,12 @@ export default function Controller({timeDate, controllers, setControllers, recor
 	return (
 		<div className="xl:w-[50%] w-full">
 			<div className="w-full">
-				<button onClick={addController}>&#43;</button>
+				<button 
+					className="rounded"
+					onClick={addController}
+				>
+					&#43;
+				</button>
 			</div>
 			<div className="w-full">
 				{controllers.map((controller) => {
