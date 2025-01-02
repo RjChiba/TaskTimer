@@ -54,7 +54,7 @@ export default function Home() {
           controllers={controllers}
           setControllers={setControllers}
           record={record} 
-          setRecord={handleRecord}/>
+          handleRecord={handleRecord}/>
         <div className="flex flex-row gap-2 items-center justify-center">
           <button onClick={saveRecord}>Store Record</button>
           <button onClick={loadRecord}>Restore Record</button>
